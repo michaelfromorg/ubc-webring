@@ -1,0 +1,19 @@
+{
+  "websites": [
+    {
+      "name": "Alice Chen",
+      "year": 2024,
+      "website": "https://alicechen.dev"
+    },
+    {
+      "name": "Bob Smith",
+      "year": 2025,
+      "website": "https://bobsmith.io"
+    },
+    {
+      "name": "Carol Wu",
+      "year": 2023,
+      "website": "https://carolwu.com"
+    }
+  ]
+}
