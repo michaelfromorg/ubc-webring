@@ -1,28 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* UBC Primary Colors */
+    --ubc-blue: 212 82% 16%;      /* #002145 - UBC Blue PMS 282 */
+    
+    /* UBC Secondary Colors */
+    --blue-2935: 209 100% 36%;    /* #0055B7 - PMS 2935 */
+    --blue-2995: 197 100% 44%;    /* #00A7E1 - PMS 2995 */
+    --blue-298: 197 77% 57%;      /* #40B4E5 - PMS 298 */
+    --blue-297: 197 71% 67%;      /* #6EC4E8 - PMS 297 */
+    --blue-2975: 197 67% 75%;     /* #97D4E9 - PMS 2975 */
+
+    /* Mapping UBC colors to shadcn variables */
+    --background: 0 0% 100%;       /* White */
+    --foreground: 212 82% 16%;    /* UBC Blue */
+    
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 212 82% 16%;
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 210 100% 35%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --popover-foreground: 212 82% 16%;
+    
+    --primary: 212 82% 16%;       /* UBC Blue */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 209 100% 36%;    /* PMS 2935 */
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 197 71% 67%;         /* PMS 297 */
+    --muted-foreground: 212 82% 16%;
+    
+    --accent: 197 100% 44%;       /* PMS 2995 */
+    --accent-foreground: 212 82% 16%;
+    
+    --destructive: 0 84.2% 60.2%; /* Keep the destructive red */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 197 67% 75%;        /* PMS 2975 */
+    --input: 197 67% 75%;         /* PMS 2975 */
+    --ring: 209 100% 36%;         /* PMS 2935 */
+
     --radius: 0.5rem;
   }
 }
@@ -31,7 +53,24 @@
   * {
     @apply border-border;
   }
+  
+  html {
+    font-family: 'Open Sans', system-ui, sans-serif;
+  }
+  
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Selection color using UBC blue */
+::selection {
+  @apply bg-primary/20 text-primary;
+}
+
+/* Ensure all text is crisp */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
