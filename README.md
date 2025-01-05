@@ -58,3 +58,9 @@ export function UBCLogo() {
   )
 }
 ```
+
+## Credit
+
+See [simcard0000/se-webring](https://github.com/simcard0000/se-webring) for more rings around the web!
+
+Thanks to the original authors (@simcard0000, @janakitti) for the inspiration, and [this thread](https://x.com/garrethleee/status/1874499577102860691) for the motivation. 
