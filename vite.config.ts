@@ -6,6 +6,7 @@ import { dirname, resolve } from 'node:path'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
+  base: '/ubc-webring/',
   plugins: [react()],
   resolve: {
     alias: {
