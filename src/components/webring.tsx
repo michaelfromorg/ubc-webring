@@ -1,12 +1,11 @@
 import { useState, useMemo } from 'react';
-import { Search, GitPullRequest } from "lucide-react";
+import { Search, GitPullRequest, ExternalLink } from "lucide-react";
 import websiteData from '../data/websites.json';
 import { Input } from './ui/input';
-import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import ubcCoaUrl from '../assets/ubc-coa.svg';
+import { Card, CardContent } from './ui/card';
 
-// Types for our data
 export type Website = {
   name: string;
   year: number;
@@ -19,7 +18,6 @@ const WebRing = () => {
   const [search, setSearch] = useState("");
   const [websites] = useState<Website[]>(websiteData.websites);
 
-  // Shuffle and filter websites based on search
   const filteredWebsites = useMemo(() => {
     const filtered = websites.filter(
       (site) =>
@@ -34,7 +32,7 @@ const WebRing = () => {
     <div className="relative min-h-screen bg-gray-50 p-8">
       {/* Background Coat of Arms */}
       <div
-        className="fixed inset-0 pointer-events-none opacity-[0.2] z-0"
+        className="fixed inset-0 pointer-events-none opacity-[0.15] z-0"
         style={{
           backgroundImage: `url(${ubcCoaUrl})`,
           backgroundPosition: 'center',
@@ -43,7 +41,7 @@ const WebRing = () => {
         }}
       />
 
-      {/* Content - Note the z-10 to place above background */}
+      {/* Content */}
       <div className="relative z-10">
         {/* Header */}
         <header className="text-center mb-12">
@@ -52,13 +50,13 @@ const WebRing = () => {
         </header>
 
         {/* Search Section */}
-        <div className="max-w-xl mx-auto mb-12">
+        <div className="max-w-2xl mx-auto mb-12">
           <div className="relative">
-            <Search className="absolute left-3 top-3 text-gray-400 h-5 w-5" />
+            <Search className="absolute left-4 top-4 text-gray-400 h-6 w-6" />
             <Input
               type="text"
               placeholder="Search by name, website, or graduation year..."
-              className="pl-10 w-full"
+              className="pl-4 py-6 text-lg bg-white/80 backdrop-blur border-2 shadow-lg"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
@@ -69,34 +67,39 @@ const WebRing = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-24">
           {filteredWebsites.map((site) => (
             <Card key={site.website} className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6">
-                <h3 className="font-semibold text-lg mb-1">{site.name}</h3>
-                <p className="text-gray-600 text-sm mb-3">Class of {site.year}</p>
-                <a
-                  href={site.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 text-sm break-all"
-                >
-                  {site.website}
-                </a>
+              <CardContent className="pt-6">
+                <div className="flex flex-col space-y-2">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-semibold">{site.name}</h3>
+                    <span className="text-sm">class of {site.year}</span>
+                  </div>
+                  <a
+                    href={site.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-mono flex items-center group-hover:underline truncate"
+                  >
+                    {site.website}
+                    <ExternalLink className="ml-1 h-3 w-3 inline" />
+                  </a>
+                </div>
               </CardContent>
             </Card>
           ))}
         </div>
-
-        {/* Floating Add Button */}
-        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-          <Button
-            className="rounded-full px-6 py-6"
-            onClick={() => window.open(GITHUB_PR_URL, '_blank')}
-          >
-            <GitPullRequest className="mr-2 h-5 w-5" />
-            Add your site via GitHub
-          </Button>
-        </div>
       </div>
-    </div >
+
+      {/* Floating Add Button */}
+      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <Button
+          className="rounded-full px-6 py-6"
+          onClick={() => window.open(GITHUB_PR_URL, '_blank')}
+        >
+          <GitPullRequest className="mr-2 h-5 w-5" />
+          Add your site via GitHub
+        </Button>
+      </div>
+    </div>
   );
 };
 
