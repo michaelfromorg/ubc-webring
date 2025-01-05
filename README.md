@@ -26,17 +26,23 @@ Your (current or former) UBC enrollment will be verified upon submission!
 
 ## Running locally
 
-Prerequisite: make sure you have `npm` installed
+Make sure you have `npm` installed. This project is using Node `lts/jod` (v22). The easiest way to get on the right version is to use `nvm`, and then run `nvm use` from the project root.
+
+After that, get started the usual way.
 
 ```bash
-npm install && npm run dev
+npm install
+
+npm run dev
+
+# verify your changes
+npm run build
+npm run preview
 ```
 
-## Contributing
-
-Note: This app is written using React, with TypeScript and Vite. Most of the code was written by Claude.
-
 ## Badge
+
+Here's snippets to add the badge to your website. The icon (in public) must be copied over to your project.
 
 ```html
 <a href="https://michaelfromorg.github.io/ubc-webring/" target="_blank" rel="noopener noreferrer">
