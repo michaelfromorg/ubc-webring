@@ -24,9 +24,17 @@ Then, do the following.
 
 Your (current or former) UBC enrollment will be verified upon submission!
 
+## Running locally
+
+Prerequisite: make sure you have `npm` installed
+
+```bash
+npm install && npm run dev
+```
+
 ## Contributing
 
-This app is written using React, with TypeScript and Vite. Most of the code was written by Claude.
+Note: This app is written using React, with TypeScript and Vite. Most of the code was written by Claude.
 
 ## Badge
 
