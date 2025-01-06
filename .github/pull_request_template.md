@@ -15,7 +15,7 @@ Thanks for contributing to the UBC Web Ring! Please fill out the following.
 
 ## Checklist
 
-- [ ] I've added my site details to `src/data/websites.json` in alphabetical order by name
+- [ ] I've added my site details to `src/data/websites.json`
 - [ ] My website URL includes the protocol (starts with `http://` or `https://`)
 - [ ] My website is appropriate for a general audience
 - [ ] I've tested that my website link works
