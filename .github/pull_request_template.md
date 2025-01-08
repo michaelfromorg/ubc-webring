@@ -4,7 +4,7 @@ Thanks for contributing to the UBC Web Ring! Please fill out the following.
 
 ## About you
 
-- [ ] I am a current or former UBC student
+- [ ] I am a current or former UBC computer science student
 - [ ] The website I'm adding is my personal site or portfolio
 
 ## Website
@@ -16,6 +16,6 @@ Thanks for contributing to the UBC Web Ring! Please fill out the following.
 ## Checklist
 
 - [ ] I've added my site details to `src/data/websites.json`
-- [ ] My website URL includes the protocol (starts with `http://` or `https://`)
+- [ ] My website URL includes the protocol (starts with `http://` or `https://`), and has no trailing slash
 - [ ] My website is appropriate for a general audience
 - [ ] I've tested that my website link works
