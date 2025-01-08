@@ -13,17 +13,37 @@
     {
       "name": "Veer Bhatia",
       "year": 2025,
-      "website": "https://veerbia.com/"
+      "website": "https://veerbia.com"
+    },
+    {
+      "name": "Achinth Bharadwaj",
+      "year": 2023,
+      "website": "https://achinth.xyz"
     },
     {
       "name": "Ben Vinnick",
       "year": 2025,
-      "website": "https://bonvee-99.github.io/portfolio/"
+      "website": "https://bonvee-99.github.io/portfolio"
     },
     {
       "name": "Tony Liang",
       "year": 2024,
-      "website": "https://tonyliang19.github.io/"
-    }
+      "website": "https://tonyliang19.github.io"
+    },
+    {
+      "name": "Olti Maloku",
+      "year": 2026,
+      "website": "https://oltimaloku.github.io/portfolio"
+    },
+    {
+      "name": "Darryl Tanzil",
+      "year": 2026,
+      "website": "https://www.darrylt.me"
+    },
+    {
+      "name": "Shubhaankar Sharma",
+      "year": 2026,
+      "website": "https://spongeboi.com"
+    },
   ]
 }
