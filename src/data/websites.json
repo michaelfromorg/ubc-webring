@@ -69,6 +69,11 @@
       "name": "Byron Wang",
       "year": 2025,
       "website": "https://www.byronwang.com"
+    },
+    {
+      "name": "Alan Wang",
+      "year": 2025,
+      "website": "https://alan-wang-website.vercel.app/"
     }
   ]
 }
