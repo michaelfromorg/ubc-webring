@@ -74,6 +74,11 @@
       "name": "Mohsen Bakhit",
       "year": 2026,
       "website": "https://www.mohsenbakhit.me"
+    },
+    {
+      "name": "Alan Wang",
+      "year": 2025,
+      "website": "https://alan-wang-website.vercel.app/"
     }
   ]
 }
