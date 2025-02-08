@@ -1,23 +1,24 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo } from "react";
 import { Search, GitPullRequest, ExternalLink } from "lucide-react";
-import websiteData from '../data/websites.json';
-import { Input } from './ui/input';
-import { Button } from './ui/button';
-import ubcCoaUrl from '../assets/ubc-coa.svg';
-import { Card, CardContent } from './ui/card';
-import { motion } from 'framer-motion';
+import websiteData from "../data/websites.json";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
+import ubcCoaUrl from "../assets/ubc-coa.svg";
+import { Card, CardContent } from "./ui/card";
+import { motion } from "framer-motion";
 
 export type Website = {
   name: string;
-  year: number;
+  year: string;
   website: string;
 };
 
-const GITHUB_PR_URL = "https://github.com/michaelfromorg/ubc-webring/edit/main/src/data/websites.json";
+const GITHUB_PR_URL =
+  "https://github.com/michaelfromorg/ubc-webring/edit/main/src/data/websites.csv";
 
 const WebRing = () => {
   const [search, setSearch] = useState("");
-  const [websites] = useState<Website[]>(websiteData.websites);
+  const [websites] = useState<Website[]>(() => websiteData);
 
   const filteredWebsites = useMemo(() => {
     const filtered = websites.filter(
@@ -39,17 +40,14 @@ const WebRing = () => {
         className="fixed inset-0 pointer-events-none z-0"
         style={{
           backgroundImage: `url(${ubcCoaUrl})`,
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: '55vh',
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "55vh",
         }}
       />
 
-
-
       {/* Content */}
       <div className="relative z-10">
-
         {/* Header */}
         <motion.header
           initial={{ y: -20, opacity: 0 }}
@@ -59,11 +57,20 @@ const WebRing = () => {
         >
           <div className="flex items-center justify-center gap-4">
             <a href="/ubc-webring/">
-              <img src={ubcCoaUrl} alt="UBC Coat of Arms" className="h-12 w-12 transition-all hover:scale-110" />
+              <img
+                src={ubcCoaUrl}
+                alt="UBC Coat of Arms"
+                className="h-12 w-12 transition-all hover:scale-110"
+              />
             </a>
-            <h1 className="text-4xl font-bold bg-clip-text py-1 text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">UBC Web Ring</h1>
+            <h1 className="text-4xl font-bold bg-clip-text py-1 text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
+              UBC Web Ring
+            </h1>
           </div>
-          <p className="text-gray-300 text-lg mt-3">A curated collection of current & past UBC computer science student websites</p>
+          <p className="text-gray-300 text-lg mt-3">
+            A curated collection of current & past UBC computer science student
+            websites
+          </p>
         </motion.header>
 
         {/* Search Section */}
@@ -98,8 +105,12 @@ const WebRing = () => {
                 <CardContent className="p-6">
                   <div className="flex flex-col space-y-3">
                     <div className="flex items-center justify-between">
-                      <h3 className="font-semibold text-lg text-gray-200">{site.name}</h3>
-                      <span className="text-sm bg-gray-700 px-3 py-1 rounded-full text-gray-300">{site.year}</span>
+                      <h3 className="font-semibold text-lg text-gray-200">
+                        {site.name}
+                      </h3>
+                      <span className="text-sm bg-gray-700 px-3 py-1 rounded-full text-gray-300">
+                        {site.year}
+                      </span>
                     </div>
                     <a
                       href={site.website}
@@ -127,7 +138,7 @@ const WebRing = () => {
       >
         <Button
           className="rounded-full px-8 py-6 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 shadow-lg hover:shadow-xl transition-all duration-300"
-          onClick={() => window.open(GITHUB_PR_URL, '_blank')}
+          onClick={() => window.open(GITHUB_PR_URL, "_blank")}
         >
           <GitPullRequest className="mr-2 h-5 w-5" />
           Add your site via GitHub

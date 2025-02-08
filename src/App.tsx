@@ -1,5 +1,5 @@
-import WebRing from '@/components/webring'
+import WebRing from "@/components/webring";
 
 export default function App() {
-  return <WebRing />
+  return <WebRing />;
 }

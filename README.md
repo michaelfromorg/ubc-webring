@@ -18,7 +18,7 @@ To add your site, you **must** be a current student or alumni of the Computer Sc
 
 Then, do the following.
 
-1. Insert the relevant information into [this file](https://github.com/michaelfromorg/ubc-webring/edit/main/src/data/websites.json)
+1. Insert the relevant information into [this file](https://github.com/michaelfromorg/ubc-webring/edit/main/src/data/websites.csv)
 2. Open a pull request; fill out the template
 3. (optional, but highly encouraged) Add the [web ring badge](#badge) to your site
 

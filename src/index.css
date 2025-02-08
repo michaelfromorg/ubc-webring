@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,43 +7,43 @@
 @layer base {
   :root {
     /* UBC Primary Colors */
-    --ubc-blue: 212 82% 16%;      /* #002145 - UBC Blue PMS 282 */
-    
+    --ubc-blue: 212 82% 16%; /* #002145 - UBC Blue PMS 282 */
+
     /* UBC Secondary Colors */
-    --blue-2935: 209 100% 36%;    /* #0055B7 - PMS 2935 */
-    --blue-2995: 197 100% 44%;    /* #00A7E1 - PMS 2995 */
-    --blue-298: 197 77% 57%;      /* #40B4E5 - PMS 298 */
-    --blue-297: 197 71% 67%;      /* #6EC4E8 - PMS 297 */
-    --blue-2975: 197 67% 75%;     /* #97D4E9 - PMS 2975 */
+    --blue-2935: 209 100% 36%; /* #0055B7 - PMS 2935 */
+    --blue-2995: 197 100% 44%; /* #00A7E1 - PMS 2995 */
+    --blue-298: 197 77% 57%; /* #40B4E5 - PMS 298 */
+    --blue-297: 197 71% 67%; /* #6EC4E8 - PMS 297 */
+    --blue-2975: 197 67% 75%; /* #97D4E9 - PMS 2975 */
 
     /* Mapping UBC colors to shadcn variables */
-    --background: 0 0% 100%;       /* White */
-    --foreground: 212 82% 16%;    /* UBC Blue */
-    
+    --background: 0 0% 100%; /* White */
+    --foreground: 212 82% 16%; /* UBC Blue */
+
     --card: 0 0% 100%;
     --card-foreground: 212 82% 16%;
-    
+
     --popover: 0 0% 100%;
     --popover-foreground: 212 82% 16%;
-    
-    --primary: 212 82% 16%;       /* UBC Blue */
+
+    --primary: 212 82% 16%; /* UBC Blue */
     --primary-foreground: 0 0% 100%;
-    
-    --secondary: 209 100% 36%;    /* PMS 2935 */
+
+    --secondary: 209 100% 36%; /* PMS 2935 */
     --secondary-foreground: 0 0% 100%;
-    
-    --muted: 197 71% 67%;         /* PMS 297 */
+
+    --muted: 197 71% 67%; /* PMS 297 */
     --muted-foreground: 212 82% 16%;
-    
-    --accent: 197 100% 44%;       /* PMS 2995 */
+
+    --accent: 197 100% 44%; /* PMS 2995 */
     --accent-foreground: 212 82% 16%;
-    
+
     --destructive: 0 84.2% 60.2%; /* Keep the destructive red */
     --destructive-foreground: 0 0% 100%;
 
-    --border: 197 67% 75%;        /* PMS 2975 */
-    --input: 197 67% 75%;         /* PMS 2975 */
-    --ring: 209 100% 36%;         /* PMS 2935 */
+    --border: 197 67% 75%; /* PMS 2975 */
+    --input: 197 67% 75%; /* PMS 2975 */
+    --ring: 209 100% 36%; /* PMS 2935 */
 
     --radius: 0.5rem;
   }
@@ -53,11 +53,11 @@
   * {
     @apply border-border;
   }
-  
+
   html {
-    font-family: 'Open Sans', system-ui, sans-serif;
+    font-family: "Open Sans", system-ui, sans-serif;
   }
-  
+
   body {
     @apply bg-background text-foreground;
   }

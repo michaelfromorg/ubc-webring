@@ -1,89 +1,87 @@
-{
-  "websites": [
-    {
-      "name": "Michael DeMarco",
-      "year": 2024,
-      "website": "https://michaeldemar.co"
-    },
-    {
-      "name": "Garreth Lee",
-      "year": 2025,
-      "website": "https://garreth.cc"
-    },
-    {
-      "name": "Veer Bhatia",
-      "year": 2025,
-      "website": "https://veerbia.com"
-    },
-    {
-      "name": "Achinth Bharadwaj",
-      "year": 2023,
-      "website": "https://achinth.xyz"
-    },
-    {
-      "name": "Ben Vinnick",
-      "year": 2025,
-      "website": "https://bonvee-99.github.io/portfolio"
-    },
-    {
-      "name": "Tony Liang",
-      "year": 2024,
-      "website": "https://tonyliang19.github.io"
-    },
-    {
-      "name": "Olti Maloku",
-      "year": 2026,
-      "website": "https://oltimaloku.github.io/portfolio"
-    },
-    {
-      "name": "Darryl Tanzil",
-      "year": 2026,
-      "website": "https://www.darrylt.me"
-    },
-    {
-      "name": "Shubhaankar Sharma",
-      "year": 2026,
-      "website": "https://spongeboi.com"
-    },
-    {
-      "name": "Misha Reyes",
-      "year": 2025,
-      "website": "https://mishareyes.com"
-    },
-    {
-      "name": "Arpit Kumar",
-      "year": 2025,
-      "website": "https://kumarpit.github.io"
-    },
-    {
-      "name": "Martin Cai",
-      "year": 2026,
-      "website": "https://martincai.xyz"
-    },
-    {
-      "name": "Arman Moztarzadeh",
-      "year": 2026,
-      "website": "https://www.armanmoztarzadeh.com"
-    },
-    {
-      "name": "Byron Wang",
-      "year": 2025,
-      "website": "https://www.byronwang.com"
-    },
-    {
-      "name": "Mohsen Bakhit",
-      "year": 2026,
-      "website": "https://www.mohsenbakhit.me"
-    },
-    {
-      "name": "Alan Wang",
-      "year": 2025,
-      "website": "https://alan-wang-website.vercel.app/"
-    },
-    {
-      "name": "Alan Zhou",
-      "year": 2027,
-      "website": "https://alanzhou.tech"
-    }
-  ]
-}
+[
+  {
+    "name": "Michael DeMarco",
+    "year": "2024",
+    "website": "https://www.michaeldemar.co"
+  },
+  {
+    "name": "Garreth Lee",
+    "year": "2025",
+    "website": "https://garreth.cc"
+  },
+  {
+    "name": "Veer Bhatia",
+    "year": "2025",
+    "website": "https://veerbia.com"
+  },
+  {
+    "name": "Achinth Bharadwaj",
+    "year": "2023",
+    "website": "https://achinth.xyz"
+  },
+  {
+    "name": "Ben Vinnick",
+    "year": "2025",
+    "website": "https://bonvee-99.github.io/portfolio"
+  },
+  {
+    "name": "Tony Liang",
+    "year": "2024",
+    "website": "https://tonyliang19.github.io"
+  },
+  {
+    "name": "Olti Maloku",
+    "year": "2026",
+    "website": "https://oltimaloku.github.io/portfolio"
+  },
+  {
+    "name": "Darryl Tanzil",
+    "year": "2026",
+    "website": "https://www.darrylt.me"
+  },
+  {
+    "name": "Shubhaankar Sharma",
+    "year": "2026",
+    "website": "https://spongeboi.com"
+  },
+  {
+    "name": "Misha Reyes",
+    "year": "2025",
+    "website": "https://mishareyes.com"
+  },
+  {
+    "name": "Arpit Kumar",
+    "year": "2025",
+    "website": "https://kumarpit.github.io"
+  },
+  {
+    "name": "Martin Cai",
+    "year": "2026",
+    "website": "https://martincai.xyz"
+  },
+  {
+    "name": "Arman Moztarzadeh",
+    "year": "2026",
+    "website": "https://www.armanmoztarzadeh.com"
+  },
+  {
+    "name": "Byron Wang",
+    "year": "2025",
+    "website": "https://www.byronwang.com"
+  },
+  {
+    "name": "Mohsen Bakhit",
+    "year": "2026",
+    "website": "https://www.mohsenbakhit.me"
+  },
+  {
+    "name": "Alan Wang",
+    "year": "2025",
+    "website": "https://alan-wang-website.vercel.app"
+  },
+  {
+    "name": "Alan Zhou",
+    "year": "2027",
+    "website": "https://alanzhou.tech"
+  }
+]
