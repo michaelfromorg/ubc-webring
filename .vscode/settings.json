@@ -1,4 +1,7 @@
 {
   "files.insertFinalNewline": true,
+  "files.associations": {
+    "CNAME": "plaintext"
+  },
   "editor.formatOnSave": true
 }
