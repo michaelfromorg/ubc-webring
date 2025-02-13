@@ -1,0 +1,33 @@
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Claude-API
+Disallow: /
+
+# Allow other search engines
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Sitemap
+# TODO(michaelfromyeg): add a sitemap
