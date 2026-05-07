@@ -1,11 +1,12 @@
 import { useState, useMemo } from "react";
-import { Search, GitPullRequest, ExternalLink } from "lucide-react";
+import { GitPullRequest, ExternalLink, Moon, Sun } from "lucide-react";
 import websiteData from "../data/websites.json";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import ubcCoaUrl from "../assets/ubc-coa.svg";
-import { Card, CardContent } from "./ui/card";
 import { motion } from "framer-motion";
+import { DottedSurface } from "./ui/dotted-surface";
+import { useTheme } from "next-themes";
 
 export type Website = {
   name: string;
@@ -19,6 +20,7 @@ const GITHUB_PR_URL =
 const WebRing = () => {
   const [search, setSearch] = useState("");
   const [websites] = useState<Website[]>(() => websiteData);
+  const { theme, setTheme } = useTheme();
 
   const filteredWebsites = useMemo(() => {
     const filtered = websites.filter(
@@ -27,123 +29,140 @@ const WebRing = () => {
         site.website.toLowerCase().includes(search.toLowerCase()) ||
         site.year.toString().includes(search)
     );
-    return [...filtered].sort(() => Math.random() - 0.5);
+    return [...filtered].sort((a, b) => {
+      const yearDiff = Number(b.year) - Number(a.year);
+      if (yearDiff !== 0) return yearDiff;
+      return a.name.localeCompare(b.name);
+    });
   }, [websites, search]);
 
+  const groupedByYear = useMemo(() => {
+    const groups: Record<string, Website[]> = {};
+    for (const site of filteredWebsites) {
+      if (!groups[site.year]) groups[site.year] = [];
+      groups[site.year].push(site);
+    }
+    return Object.entries(groups).sort(([a], [b]) => Number(b) - Number(a));
+  }, [filteredWebsites]);
+
+  function displayUrl(url: string): string {
+    return url.replace(/^https?:\/\/(www\.)?/, "");
+  }
+
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 p-8">
-      {/* Background Coat of Arms */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.05 }}
-        transition={{ duration: 1 }}
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          backgroundImage: `url(${ubcCoaUrl})`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "55vh",
-        }}
-      />
+    <div className="relative min-h-screen">
+      {/* Animated dotted background */}
+      <DottedSurface />
 
       {/* Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 px-6 py-10">
         {/* Header */}
         <motion.header
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          transition={{ duration: 1.4 }}
+          className="flex items-center justify-between max-w-3xl mx-auto mb-8"
         >
-          <div className="flex items-center justify-center gap-4">
-            <a href="/ubc-webring/">
-              <img
-                src={ubcCoaUrl}
-                alt="UBC Coat of Arms"
-                className="h-12 w-12 transition-all hover:scale-110"
-              />
-            </a>
-            <h1 className="text-4xl font-bold bg-clip-text py-1 text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
-              UBC Web Ring
-            </h1>
+          <a href="/ubc-webring/" className="flex items-center gap-3 group">
+            <img
+              src={ubcCoaUrl}
+              alt="UBC Coat of Arms"
+              className="h-12 w-12 transition-transform duration-200 group-hover:scale-110"
+            />
+            <div>
+              <h1 className="text-2xl font-semibold tracking-tight text-foreground leading-none">
+                UBC Web Ring
+              </h1>
+              <p className="text-sm text-muted-foreground mt-1.5">
+                {filteredWebsites.length} CS student
+                {filteredWebsites.length !== 1 ? "s" : ""}
+              </p>
+            </div>
+          </a>
+
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              className="rounded-lg text-xs font-medium gap-1.5"
+              onClick={() => window.open(GITHUB_PR_URL, "_blank")}
+            >
+              <GitPullRequest className="h-3.5 w-3.5" />
+              Add your site here
+            </Button>
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-foreground/5 transition-colors duration-150"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? (
+                <Sun className="h-4 w-4" />
+              ) : (
+                <Moon className="h-4 w-4" />
+              )}
+            </button>
           </div>
-          <p className="text-gray-300 text-lg mt-3">
-            A curated collection of current & past UBC computer science student
-            websites
-          </p>
         </motion.header>
 
-        {/* Search Section */}
+        {/* Search */}
         <motion.div
-          initial={{ y: 20, opacity: 0 }}
+          initial={{ y: 12, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-2xl mx-auto mb-12 sticky top-8 z-40"
+          transition={{ duration: 1.2, delay: 0.25 }}
+          className="max-w-3xl mx-auto mb-8 sticky top-0 z-40 bg-background pt-6 pb-1"
         >
           <div className="relative">
-            <Search className="absolute left-4 top-4 text-gray-400 h-6 w-6" />
             <Input
               type="text"
-              placeholder="Search by name, website, or graduation year..."
-              className="pl-4 py-6 text-lg bg-gray-800/90 backdrop-blur border-none ring-1 ring-gray-700 shadow-2xl shadow-black/100 rounded-xl transition-all duration-200 text-gray-200 placeholder:text-gray-500"
+              placeholder="Search by name, website, or grad year..."
+              className="pl-4 py-5 bg-background border border-foreground/10 rounded-xl text-sm text-foreground placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-foreground/20 transition-all duration-200"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
         </motion.div>
 
-        {/* Websites Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-32">
-          {filteredWebsites.map((site, index) => (
+        {/* Websites grouped by year */}
+        <div className="max-w-3xl mx-auto mb-32 space-y-10">
+          {groupedByYear.map(([year, sites]) => (
             <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              key={site.website}
+              key={year}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.0 }}
             >
-              <Card className="hover:shadow-xl transition-all duration-300 bg-gray-800/90 backdrop-blur border-none ring-1 ring-gray-700 z-20">
-                <CardContent className="p-6">
-                  <div className="flex flex-col space-y-3">
-                    <div className="flex items-center justify-between">
-                      <h3 className="font-semibold text-lg text-gray-200">
-                        {site.name}
-                      </h3>
-                      <span className="text-sm bg-gray-700 px-3 py-1 rounded-full text-gray-300">
-                        {site.year}
-                      </span>
-                    </div>
+              <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3 pl-1 bg-background/40 backdrop-blur-md">
+                {year}
+              </div>
+              <div className="rounded-xl overflow-hidden bg-background/40 ">
+                {sites.map((site, index) => (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.7, delay: index * 0.04 }}
+                    key={site.website}
+                    className="flex items-center justify-between px-5 py-3.5 transition-colors"
+                  >
+                    <span className="font-medium text-sm text-foreground">
+                      {site.name}
+                    </span>
                     <a
                       href={site.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-mono flex items-center text-blue-400 hover:text-blue-300 transition-colors truncate group"
+                      className="text-xs font-mono flex items-center gap-1 text-muted-foreground transition-colors group/link"
                     >
-                      {site.website}
-                      <ExternalLink className="ml-1 h-3 w-3 inline transition-transform group-hover:translate-x-0.5" />
+                      {displayUrl(site.website)}
+                      <ExternalLink className="h-3 w-3 opacity-0 group-hover/link:opacity-100 transition-opacity" />
                     </a>
-                  </div>
-                </CardContent>
-              </Card>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
       </div>
 
-      {/* Floating Add Button */}
-      <motion.div
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        className="fixed bottom-8 inset-x-0 mx-auto z-20 w-fit"
-      >
-        <Button
-          className="rounded-full px-8 py-6 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 shadow-lg hover:shadow-xl transition-all duration-300"
-          onClick={() => window.open(GITHUB_PR_URL, "_blank")}
-        >
-          <GitPullRequest className="mr-2 h-5 w-5" />
-          Add your site via GitHub
-        </Button>
-      </motion.div>
     </div>
   );
 };
