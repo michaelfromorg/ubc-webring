@@ -53,8 +53,6 @@ Here's snippets to add the badge to your website. The icon (in public) must be c
 Or, for a React app.
 
 ```jsx
-import ubcCoaUrl from '@/assets/ubc-coa.svg'
-
 export function UBCLogo() {
   return (
     <a 
@@ -63,7 +61,7 @@ export function UBCLogo() {
       rel="noopener noreferrer"
     >
       <img 
-        src={ubcCoaUrl} 
+        src="/ubc-coa.svg"
         alt="UBC Webring" 
         width={36} 
         height={50} 

@@ -1,5 +1,5 @@
-import WebRing from "@/components/webring";
+import ConceptGallery from "@/components/concepts";
 
 export default function App() {
-  return <WebRing />;
+  return <ConceptGallery />;
 }
